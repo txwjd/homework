@@ -5,8 +5,7 @@
 - 웹 표준과 접근성
 - Node.js 실습 및 CLI 환경 경험
 - Git 브랜치 병합(3-Way Merge, Fast Forward) 실습
-- HTML 이미지 및 피규어 요소 학습
-
+- HTML
 ---
 
 ## 2. 느낀 점
