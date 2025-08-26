@@ -121,7 +121,7 @@ This is a normal paragraph:
 end code block.
 *****
 
-> 한 줄 띄어쓰기를 하지 않으면 코드블럭이 제대로 인식되지 않습니다.
+> 한 줄 띄어쓰기를 하지 않으면 코드블럭이 제대로 인식되지 않는다.
 
 This is a normal paragraph:
 Hello, 멋사 부트캠프 15기!
@@ -143,7 +143,7 @@ end code block.
 
 ## 2.4.2 코드블럭
 
-코드블럭 작성 방법에는 크게 두 가지가 있습니다.
+코드블럭 작성 방법에는 크게 두 가지가 있다.
 
 ### 1) `<pre><code>` 이용 방식
 <pre> <code> public class Bootcamp15Application { public static void main(String[] args) { System.out.println("Hello, 멋사 부트캠프 15기"); } } </code> </pre>
@@ -177,7 +177,7 @@ public class Bootcamp15Application {
     System.out.println("Hello, 멋사 부트캠프 15기");
   }
 }
-GitHub에서는 코드블럭 시작점에 언어명을 적으면 문법 강조(Syntax Highlighting)가 적용됩니다.
+GitHub에서는 코드블럭 시작점에 언어명을 적으면 문법 강조(Syntax Highlighting)가 적용된다.
 
 
 public class Bootcamp15Application {
