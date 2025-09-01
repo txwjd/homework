@@ -5,6 +5,13 @@
   },
   "devDependencies": {
     "live-server": "^1.2.2",
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "simple-webp-converter": "^1.0.3"
+  },
+  "scripts": {
+    "webp": "simple-webp-converter"
+  },
+  "simple-webp-converter": {
+    "src": "src/**/*.{png,jpg}"
   }
 }
