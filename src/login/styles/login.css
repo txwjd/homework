@@ -123,12 +123,12 @@ body {
   vertical-align: middle;
 }
 
-/* ✅ 체크된 상태: on */
+/* 체크된 상태: on */
 .keep-login .visually-hidden:checked + .custom-checkbox {
   background: url("../image/checkbox.svg") no-repeat center/cover;
 }
 
-/* ✅ 포커스 링 (접근성) */
+/* 포커스 링 (접근성) */
 .keep-login .visually-hidden:focus-visible + .custom-checkbox {
   outline: 2px solid var(--focus);
   outline-offset: 2px;
