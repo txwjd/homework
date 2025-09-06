@@ -1,0 +1,149 @@
+/* 최상단 좌측 고정 요소 */
+body > a[href$="index.html"] {
+    position: fixed;
+    top: 20px;      /* 위쪽 여백 */
+    left: 20px;     /* 왼쪽 여백 */
+    margin: 0;
+    font-size: 1rem;
+    color: #121212;
+    text-decoration: none;
+    z-index: 1000;
+}
+
+body > h1:first-of-type {
+    position: fixed;
+    top: 50px;      /* 링크 아래쪽 */
+    left: 20px;
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #121212;
+    z-index: 1000;
+}
+
+:root {
+    --font-color: #121212;
+    --green: #03cf5d;
+    --focus: #24388d;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    font-size: 16px;
+    color: var(--font-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 2rem 1.25rem;
+    background: #fff;
+}
+
+.logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo svg {
+    display: block;
+    margin: 0 auto;
+}
+
+/* 입력 */
+.input {
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+.input label {
+    position: absolute;
+    left: -9999px; /* 접근성용 숨김 */
+}
+
+.input input {
+    width: 100%;
+    font-size: 0.875rem; /* 14px */
+    height: 2.8125rem;   /* 45px */
+    border: 1px solid #dadada;
+    padding: 0 0.75rem;
+    }
+
+.input input:focus {
+    border-color: var(--green);
+    background: #e9f0fd;
+    outline: none;
+}
+
+.error-msg {
+    display: none;
+    margin-top: 0.25rem;
+    font-size: 0.75rem;
+    color: red;
+}
+
+.input input:invalid ~ .error-msg {
+    display: block;
+}
+
+/* 로그인 버튼 */
+.btn-login {
+    width: 100%;
+    font-size: 1rem;
+    height: 2.8125rem;
+    color: #fff;
+    background: var(--green);
+    border: none;
+    margin-top: 1.25rem;
+    cursor: pointer;
+}
+
+/* 상태/보안 */
+.etc {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.625rem;
+    font-size: 0.875rem;
+}
+
+/* 체크박스 커스텀 */
+/* 체크박스 아이콘 (기본: off) */
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+  background: url("../image/no_checkbox.svg") no-repeat center/cover;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ✅ 체크된 상태: on */
+.keep-login .visually-hidden:checked + .custom-checkbox {
+  background: url("../image/checkbox.svg") no-repeat center/cover;
+}
+
+/* ✅ 포커스 링 (접근성) */
+.keep-login .visually-hidden:focus-visible + .custom-checkbox {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+/* IP 보안 */
+.btn-ip {
+    font-size: 1rem;
+    color: var(--font-color);
+    text-decoration: none;
+}
+
+/* 모바일에서는 숨김 */
+@media (max-width: 767px) {
+    .btn-ip {
+        display: none;
+    }
+}
