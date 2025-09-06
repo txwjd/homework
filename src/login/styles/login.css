@@ -1,59 +1,51 @@
-/* 최상단 좌측 고정 요소 */
-body > a[href$="index.html"] {
-    position: fixed;
-    top: 20px;      /* 위쪽 여백 */
-    left: 20px;     /* 왼쪽 여백 */
-    margin: 0;
-    font-size: 1rem;
-    color: #121212;
-    text-decoration: none;
-    z-index: 1000;
-}
-
-body > h1:first-of-type {
-    position: fixed;
-    top: 50px;      /* 링크 아래쪽 */
-    left: 20px;
-    margin: 0;
-    font-size: 1.25rem;
-    font-weight: bold;
-    color: #121212;
-    z-index: 1000;
-}
-
 :root {
-    --font-color: #121212;
-    --green: #03cf5d;
-    --focus: #24388d;
+  --font-color: #121212;
+  --green: #03cf5d;
+  --focus: #24388d;
 }
 
 * { box-sizing: border-box; }
 
+html { font-size: 16px; }
+
 body {
-    font-size: 16px;
+    margin: 0;
+    font-size: 1rem;
     color: var(--font-color);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    background: #fff;
 }
 
+/* 최상단 고정 */
+body > a[href$="index.html"] {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    text-decoration: none;
+    color: var(--font-color);
+}
+
+body > h1:first-of-type {
+    position: fixed;
+    top: 50px;
+    left: 20px;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+/* 로그인 컨테이너 */
 .login-container {
     width: 100%;
     max-width: 500px;
     padding: 2rem 1.25rem;
-    background: #fff;
 }
 
-.logo {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.logo svg {
-    display: block;
-    margin: 0 auto;
-}
+/* 로고 */
+.logo { text-align: center; margin-bottom: 2rem; }
+.logo svg { display: block; margin: 0 auto; }
 
 /* 입력 */
 .input {
@@ -61,78 +53,80 @@ body {
     position: relative;
 }
 
+/* 스크린 리더용 숨김... 다른방법이 뭐 없을까... */
 .input label {
     position: absolute;
-    left: -9999px; /* 접근성용 숨김 */
+    left: -9999px;
 }
 
 .input input {
     width: 100%;
-    font-size: 0.875rem; /* 14px */
-    height: 2.8125rem;   /* 45px */
+    height: 2.8rem; /* 45px */
     border: 1px solid #dadada;
     padding: 0 0.75rem;
-    }
+    font-size: 0.875rem;
+}
 
 .input input:focus {
     border-color: var(--green);
-    background: #e9f0fd;
-    outline: none;
+    background: #ffffff;
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
 }
-
+/* 에러 메시지 */
 .error-msg {
     display: none;
-    margin-top: 0.25rem;
-    font-size: 0.75rem;
-    color: red;
+    font-size: 0.9rem;
+    color: #FF1414;
+    margin-top: 0.5rem;
 }
-
-.input input:invalid ~ .error-msg {
+/* 유효성 검사 */
+input:invalid + .error-msg {
     display: block;
 }
 
 /* 로그인 버튼 */
 .btn-login {
     width: 100%;
-    font-size: 1rem;
-    height: 2.8125rem;
-    color: #fff;
+    height: 2.8rem;
     background: var(--green);
+    color: #fff;
     border: none;
     margin-top: 1.25rem;
+    font-size: 1rem;
     cursor: pointer;
 }
 
-/* 상태/보안 */
+/* 기타 (로그인 상태 유지 + IP 보안) */
 .etc {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 0.625rem;
-    font-size: 0.875rem;
+    margin-top: 0.6rem;
+    font-size: 0.9rem;
 }
 
-/* 체크박스 커스텀 */
-/* 체크박스 아이콘 (기본: off) */
-.custom-checkbox {
-  width: 24px;
-  height: 24px;
-  margin-right: 5px;
-  background: url("../image/no_checkbox.svg") no-repeat center/cover;
-  display: inline-block;
-  vertical-align: middle;
+/* 체크박스 */
+.keep-login {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    cursor: pointer;
 }
+.visually-hidden {
+    position: absolute;
+    width: 1px; height: 1px;
+    margin: -1px; border: 0; padding: 0;
+    clip: rect(0 0 0 0); clip-path: inset(50%);
+    overflow: hidden;
+}
+/* 기본 OFF, ON은 숨김 */
+.icon-off { display: inline-block; }
+.icon-on { display: none; }
 
-/* 체크된 상태: on */
-.keep-login .visually-hidden:checked + .custom-checkbox {
-  background: url("../image/checkbox.svg") no-repeat center/cover;
-}
-
-/* 포커스 링 (접근성) */
-.keep-login .visually-hidden:focus-visible + .custom-checkbox {
-  outline: 2px solid var(--focus);
-  outline-offset: 2px;
-}
+/* 체크되면 반대 */
+.keep-login input:checked ~ .icon-on { display: inline-block; }
+.keep-login input:checked ~ .icon-off { display: none; }
 
 /* IP 보안 */
 .btn-ip {
@@ -140,10 +134,7 @@ body {
     color: var(--font-color);
     text-decoration: none;
 }
-
-/* 모바일에서는 숨김 */
+    
 @media (max-width: 767px) {
-    .btn-ip {
-        display: none;
-    }
+    .btn-ip { display: none; }
 }
